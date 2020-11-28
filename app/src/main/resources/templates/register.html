@@ -16,31 +16,31 @@
 				<td>*Địa chỉ email:</td>
 				<td><input type="text" size="25" autocomplete="none" id="email"
 					name="email" onblur="checkValidEmail();"></td>
-				<td class="error-text" id="errEmail"></td>
+				<td><span class="error-text" id="errEmail"></span></td>
 			</tr>
 			<tr>
 				<td>*Mật khẩu:</td>
 				<td><input type="password" size="25" id="password"
 					name="password" onblur="checkPassword();"></td>
-				<td class="error-text" id="errPassword"></td>
+				<td><span class="error-text" id="errPassword"></span></td>
 			</tr>
 			<tr>
 				<td>*Nhập lại mật khẩu:</td>
 				<td><input type="password" size="25" id="confirmPassword"
 					name="confirmPassword" onblur="checkConfirmPassword();"></td>
-				<td class="error-text" id="errConfirmPassword"></td>
+				<td><span class="error-text" id="errConfirmPassword"></span></td>
 			</tr>
 			<tr>
 				<td>*Họ tên:</td>
 				<td><input type="text" size="25" id="name" name="name"
 					onblur="checkName();"></td>
-				<td class="error-text" id="errName"></td>
+				<td><span class="error-text" id="errName"></span></td>
 			</tr>
 			<tr>
 				<td>*Ngày sinh:</td>
 				<td><input type="text" size="15" id="birthday" name="birthday"
 					onblur="checkBirthday();"> dd/mm/yy</td>
-				<td class="error-text" id="errBirthday"></td>
+				<td><span class="error-text" id="errBirthday"></span></td>
 			</tr>
 			<tr>
 				<td>Giới tính:</td>
@@ -73,9 +73,11 @@
 				<td><input type="text" size="25" name="phone" id="phone"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><button class="btn btn-light" type="submit">Lưu</button>
+				<td colspan="2"><button class="btn btn-light" type="submit"
+						onclick="validateWhenSubmit(event);">Lưu</button>
 
-					<button class="btn btn-light" type="submit">Hủy bỏ</button></td>
+					<button class="btn btn-light" type="button"
+						onclick="redirectTo('/');">Hủy bỏ</button></td>
 			</tr>
 		</table>
 	</form>

@@ -48,13 +48,29 @@ const filterMember = (event) => {
 		isFemale: value == 1 ? true : false
 	};
 	var success = (result) => {
-		$('#totalResult').html(1);
+		$('#totalResult').html(result.length);
 		var newElem = document.createElement('tbody');
 		newElem.id = 'listBody';
-		/*var clone = $(newElem);
-		clone.append('');*/
-		$('#listBody').replaceWith(newElem);
+		var clone = $(newElem);
+		result.forEach((member, i) => {
+			let child = `<tr><td>${member.name}</td><td>${member.birthday}</td><td>${member.female ? 'Nữ' : 'Nam'}</td><td>${member.email}</td></tr>`
+			clone.append(child)
+		});
+		$('#listBody').replaceWith(clone);
 	};
 	var dataType = 'json';
 	$.post(url, data, success, dataType);
+}
+const validateWhenSubmit = (event) => {
+	var errors = $('.error-text');
+	var hasError = false;
+	errors.each((i, err)=>{
+		if(!(err.innerHTML!=null)){
+			hasError = true;
+			return false;
+		}
+	})
+	console.log(hasError)
+	if(hasError) {event.preventDefault();}
+	
 }

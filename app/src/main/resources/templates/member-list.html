@@ -17,7 +17,8 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td>Tổng số thành viên: <b th:utext="${#lists.size(members)}" id="totalResult"></b></td>
+					<td>Tổng số thành viên: <b th:utext="${#lists.size(members)}"
+						id="totalResult"></b></td>
 					<td><button type="button" onclick="redirectTo('/register')">Thêm
 							thành viên</button></td>
 				</tr>
@@ -47,7 +48,7 @@
 					<td th:utext="${member.birthday}"></td>
 					<td th:if="${member.female}">Nữ</td>
 					<td th:unless="${member.female}">Nam</td>
-					<td th:utext="${member.email}"></td>
+					<td><a href="member-detail" th:utext="${member.email}"></a></td>
 				</tr>
 			</tbody>
 		</table>

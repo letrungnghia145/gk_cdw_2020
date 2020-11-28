@@ -51,11 +51,11 @@ public class AjaxController {
 	}
 
 	@PostMapping("/checkBirthday")
-	public String checkValidBirtdayDateFormat(String dateAsString) {
+	public String checkValidBirtdayDateFormat(@RequestParam("birthday") String dateAsString) {
 		String emptyInputError = !service.checkNonEmptyInput(dateAsString) ? "Không được bỏ trống!" : null;
 		if (emptyInputError != null)
 			return emptyInputError;
-		String wrongInputDateError = service.checkValidDate(dateAsString)
+		String wrongInputDateError = !service.checkValidDate(dateAsString)
 				? "Sai định dạng ngày vui lòng nhập theo định dạng cho trước!"
 				: null;
 		if (wrongInputDateError != null)

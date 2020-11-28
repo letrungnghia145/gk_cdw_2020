@@ -12,12 +12,12 @@ import application.model.Member;
 public class RepositoryImpl {
 	private static List<Member> members = new ArrayList<>();
 	static {
-		Member member1 = new Member("email1", "pass1", "name1", new Date(System.currentTimeMillis()), true, "DH1",
-				"address1", "phone1");
-		Member member2 = new Member("email2", "pass2", "name2", new Date(System.currentTimeMillis()), false, "DH2",
-				"address2", "phone2");
-		Member member3 = new Member("email3", "pass3", "name3", new Date(System.currentTimeMillis()), true, "DH3",
-				"address3", "phone3");
+		Member member1 = new Member("nvtuan@hotmail.com", "pass1", "Nguyễn Văn Tuấn",
+				new Date(System.currentTimeMillis()), false, "DH1", "address1", "phone1");
+		Member member2 = new Member("lanpham@yahoo.com.vn", "pass2", "Phạm Thị Lan",
+				new Date(System.currentTimeMillis()), true, "DH2", "address2", "phone2");
+		Member member3 = new Member("vongoclong1980@yahoo.com", "pass3", "Võ Ngọc Long",
+				new Date(System.currentTimeMillis()), false, "DH3", "address3", "phone3");
 		members.add(member1);
 		members.add(member2);
 		members.add(member3);
@@ -40,5 +40,14 @@ public class RepositoryImpl {
 			}
 		}
 		return members;
+	}
+
+	public Member findMemberByEmail(String email) {
+		for (Member member : members) {
+			if (member.getEmail().equals(email)) {
+				return member;
+			}
+		}
+		return null;
 	}
 }

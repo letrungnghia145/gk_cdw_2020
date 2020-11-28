@@ -3,6 +3,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery-3.4.1.min.js}"></script>
 </head>
 <body>
 	<h1>
@@ -13,6 +15,6 @@
 		và mật khẩu là: <strong th:utext="${member.password}"></strong><br>
 		Cảm ơn bạn đã đăng ký!
 	</p>
-	<button type="button">Đóng</button>
+	<button type="button" onclick="redirectTo('/');">Đóng</button>
 </body>
 </html>

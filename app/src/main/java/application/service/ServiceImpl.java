@@ -16,7 +16,7 @@ public class ServiceImpl {
 
 	// Check if email exist
 	public boolean checkExistingMail(String email) {
-		if (email.equals("abc")) {
+		if (repository.findMemberByEmail(email) != null) {
 			return true;
 		}
 		return false;
@@ -32,17 +32,31 @@ public class ServiceImpl {
 
 	// Check email
 	public boolean checkFormatedMail(String email) {
-		if (email != null) {
+		boolean checkContainA = email.contains("@");
+		if (!checkContainA) {
 			return false;
 		}
 		return true;
 	}
 
 	public boolean checkValidDate(String dateAsString) {
-		if (dateAsString != null) {
-			return true;
+		boolean checkContainDash = dateAsString.contains("/");
+		String[] split = dateAsString.split("/");
+		try {
+			if (!checkContainDash) return false;
+			if(split.length!=3) return false;
+			if(split[0].length()<2||split[1].length()<2||split[2].length()<4) return false;
+			int day = Integer.parseInt(split[0]);
+			int month = Integer.parseInt(split[1]);
+			int year = Integer.parseInt(split[2]);
+			if(!(1<=day&&day<=31)) return false;
+			if(!(1<=month&&month<=12)) return false;
+			if(!(1900<=year&&year<=2500)) return false;
+		} catch (Exception e) {
+			return false;
 		}
-		return false;
+		
+		return true;
 	}
 
 	public boolean checkNonEmptyInput(String input) {

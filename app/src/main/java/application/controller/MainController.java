@@ -41,4 +41,9 @@ public class MainController {
 	public String getHello(Model model) {
 		return "hello";
 	}
+
+	@GetMapping("/member-detail")
+	public String getMemberDetail() {
+		return "member-detail";
+	}
 }
