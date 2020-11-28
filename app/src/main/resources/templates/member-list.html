@@ -1,0 +1,56 @@
+<!DOCTYPE html >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Student management</title>
+<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}">
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery-3.4.1.min.js}"></script>
+</head>
+<body>
+	<div class="container">
+		<table>
+			<thead>
+				<tr>
+					<th scope="col"><h1>Danh sách thành viên</h1></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Tổng số thành viên: <b th:utext="${#lists.size(members)}" id="totalResult"></b></td>
+					<td><button type="button" onclick="redirectTo('/register')">Thêm
+							thành viên</button></td>
+				</tr>
+				<tr>
+					<td>Chọn giới tính: <select onchange="filterMember(event);">
+							<option>Chọn...</option>
+							<option value="0">Nam</option>
+							<option value="1">Nữ</option>
+					</select>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Họ tên</th>
+					<th scope="col">Ngày sinh</th>
+					<th scope="col">Giới tính</th>
+					<th scope="col">Email</th>
+				</tr>
+			</thead>
+			<tbody id="listBody">
+				<tr th:each="member,i:${members}">
+					<td th:utext="${member.name}"></td>
+					<td th:utext="${member.birthday}"></td>
+					<td th:if="${member.female}">Nữ</td>
+					<td th:unless="${member.female}">Nam</td>
+					<td th:utext="${member.email}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

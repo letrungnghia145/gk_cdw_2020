@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>
+		Chào mừng bạn <em th:utext="${member.name}"></em>
+	</h1>
+	<p>
+		Bạn có thể đăng nhập với tên: <strong th:utext="${member.email}"></strong>
+		và mật khẩu là: <strong th:utext="${member.password}"></strong><br>
+		Cảm ơn bạn đã đăng ký!
+	</p>
+	<button type="button">Đóng</button>
+</body>
+</html>

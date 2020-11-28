@@ -1,0 +1,19 @@
+.header {
+	color: red;
+}
+
+.error-text {
+	color: red;
+	visibility: visible;
+}
+
+.table {
+	border: 1px solid black;
+}
+
+.table th, .table tr,.table td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	text-align: center;
+	padding: 3px;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link type="text/css" rel="stylesheet" th:href="@{/css/style.css}">
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery-3.4.1.min.js}"></script>
+</head>
+<body>
+	<h1 class="header">Đăng ký thành viên</h1>
+	<form method="post" action="/register">
+		<table>
+			<tr>
+				<td>*Địa chỉ email:</td>
+				<td><input type="text" size="25" autocomplete="none" id="email"
+					name="email" onblur="checkValidEmail();"></td>
+				<td class="error-text" id="errEmail"></td>
+			</tr>
+			<tr>
+				<td>*Mật khẩu:</td>
+				<td><input type="password" size="25" id="password"
+					name="password" onblur="checkPassword();"></td>
+				<td class="error-text" id="errPassword"></td>
+			</tr>
+			<tr>
+				<td>*Nhập lại mật khẩu:</td>
+				<td><input type="password" size="25" id="confirmPassword"
+					name="confirmPassword" onblur="checkConfirmPassword();"></td>
+				<td class="error-text" id="errConfirmPassword"></td>
+			</tr>
+			<tr>
+				<td>*Họ tên:</td>
+				<td><input type="text" size="25" id="name" name="name"
+					onblur="checkName();"></td>
+				<td class="error-text" id="errName"></td>
+			</tr>
+			<tr>
+				<td>*Ngày sinh:</td>
+				<td><input type="text" size="15" id="birthday" name="birthday"
+					onblur="checkBirthday();"> dd/mm/yy</td>
+				<td class="error-text" id="errBirthday"></td>
+			</tr>
+			<tr>
+				<td>Giới tính:</td>
+				<td><input type="checkbox" name="male" id="male"> Nữ</td>
+			</tr>
+			<tr>
+				<td>Trình độ văn hóa:</td>
+				<td><select name="degree" id="degree">
+						<option>Chọn...</option>
+						<option>Tốt nghiệp phổ thông</option>
+						<option>Cảo đẳng</option>
+						<option>Đại học</option>
+						<option>Thạc sĩ</option>
+						<option>Tiến sĩ</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Địa chỉ:</td>
+				<td><select name="address" id="address">
+						<option>Chọn..</option>
+						<option>TP HCM</option>
+						<option>Đà Nẵng</option>
+						<option>Huế</option>
+						<option>Hà Nội</option>
+
+				</select></td>
+			</tr>
+			<tr>
+				<td>Điện thoại:</td>
+				<td><input type="text" size="25" name="phone" id="phone"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><button class="btn btn-light" type="submit">Lưu</button>
+
+					<button class="btn btn-light" type="submit">Hủy bỏ</button></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
